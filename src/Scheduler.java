@@ -43,10 +43,11 @@ public class Scheduler {
 
         Processo processoexecutando = proximoprocesso();
 
-        if(processoexecutando.recurso_necessario.equals("DISCO"){
+        if(processoexecutando.recurso_necessario.equals("DISCO") && processoexecutando.bloqueio == true){
             System.out.println("||BLOQUEIO|| Processo " +  processoexecutando.nome + " requer DISCO");
 
             lista_bloqueados.AdicionarFim(processoexecutando);
+            processoexecutando.bloqueio = true;
             return;
 
         }
@@ -66,9 +67,19 @@ public Processo proximoprocesso(){
         Processo processo = null;
 
         if (contador_ciclos_alta_prioridade >= 5){
-            System.out.println("Quantidadde de ciclos de alta prioridade alcançada. Executando media/baixa prioridade.");
+            System.out.println("Quantidade de ciclos de alta prioridade alcançada. Executando media/baixa prioridade.");
             contador_ciclos_alta_prioridade = 0;
-            
+
+            if (lista_media_prioridade != null){
+                lista_media_prioridade.RemoverInicio();
+            }else if (lista_baixa_prioridade != null){
+                lista_baixa_prioridade.RemoverInicio();
+            }else {
+                System.out.println("Nenhuma prioridade media/baixa disponivel, Executando alta prioridade.");
+                lista_alta_prioridade.RemoverInicio();
+                contador_ciclos_alta_prioridade++;
+            }
+
         }
 
 }
