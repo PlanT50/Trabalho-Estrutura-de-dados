@@ -29,4 +29,18 @@ public class ListaDeProcessos {
          Tail = novonode;
         }
     }
+    public Processo RemoverInicio(){
+       if(this.Head == null){
+        return null;
+       }
+       Processo removido = Head.processo;
+       Head = Head.proximo;
+
+       if(Head == null){
+           Tail = null;
+       }
+       return removido;
+
+    }
+
 }
