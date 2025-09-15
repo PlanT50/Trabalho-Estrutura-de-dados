@@ -30,7 +30,47 @@ public class Scheduler {
         }
 
     }
+    public void  executarCicloDeCPU(){
+        cicloAtual++;
+        System.out.println("Executando ciclo " + cicloAtual );
 
+        if(!(lista_bloqueados == null)){
+            Processo processodesbloqueio = lista_bloqueados.RemoverInicio();
+            System.out.println("||DESBLOQUEIO|| Processo " + processodesbloqueio.nome);
+            AdicionarProcesso(processodesbloqueio);
 
+        }
+
+        Processo processoexecutando = proximoprocesso();
+
+        if(processoexecutando.recurso_necessario.equals("DISCO"){
+            System.out.println("||BLOQUEIO|| Processo " +  processoexecutando.nome + " requer DISCO");
+
+            lista_bloqueados.AdicionarFim(processoexecutando);
+            return;
+
+        }
+        System.out.println("Executando processo " + processoexecutando.nome "Ciclos restantes: " + processoexecutando.ciclos_necessarios);
+
+        processoexecutando.ciclos_necessarios--;
+
+        if (processoexecutando.ciclos_necessarios == 0){
+            System.out.println("Processo " + processoexecutando.nome + " executado");
+        }else {
+            AdicionarProcesso(processoexecutando);
+            System.out.println("Processo " + processoexecutando.nome + " reenserido ");
+        }
+
+    }
+public Processo proximoprocesso(){
+        Processo processo = null;
+
+        if (contador_ciclos_alta_prioridade >= 5){
+            System.out.println("Quantidadde de ciclos de alta prioridade alcançada. Executando media/baixa prioridade.");
+            contador_ciclos_alta_prioridade = 0;
+            
+        }
+
+}
 
 }
