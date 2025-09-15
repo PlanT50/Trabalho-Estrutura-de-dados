@@ -21,7 +21,7 @@ public class ListaDeProcessos {
     public void AdicionarFim(Processo processo){
         Node novonode = new Node(processo);
 
-        if(this.Head == null){
+        if(Head == null){
             Head = novonode;
             Tail = novonode;
         }else {
@@ -30,7 +30,7 @@ public class ListaDeProcessos {
         }
     }
     public Processo RemoverInicio(){
-       if(this.Head == null){
+       if(Head == null){
         return null;
        }
        Processo removido = Head.processo;
