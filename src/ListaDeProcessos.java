@@ -61,5 +61,8 @@ public class ListaDeProcessos {
 
         return resultado;
     }
+    public boolean Vazio(){
+        return Head == null;
+    }
 
 }
