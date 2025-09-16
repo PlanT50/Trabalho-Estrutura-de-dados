@@ -43,7 +43,7 @@ public class Scheduler {
 
         Processo processoexecutando = proximoprocesso();
 
-        if(processoexecutando.recurso_necessario.equals("DISCO") && processoexecutando.bloqueio == true){
+        if(processoexecutando.recurso_necessario.equals("DISCO") && processoexecutando.bloqueio == false){
             System.out.println("||BLOQUEIO|| Processo " +  processoexecutando.nome + " requer DISCO");
 
             lista_bloqueados.AdicionarFim(processoexecutando);
@@ -98,5 +98,13 @@ public Processo proximoprocesso(){
         return processo;
 
 }
+    private void Imprimir() {
+        System.out.println("\nEstado das listas:");
+        System.out.println("Alta: " + lista_alta_prioridade.imprimirLista());
+        System.out.println("Média: " + lista_media_prioridade.imprimirLista());
+        System.out.println("Baixa: " + lista_baixa_prioridade.imprimirLista());
+        System.out.println("Bloqueados: " + lista_bloqueados.imprimirLista());
+        System.out.println("Contador anti-inanição: " + contador_ciclos_alta_prioridade + "/5");
+    }
 
 }
