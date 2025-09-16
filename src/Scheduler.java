@@ -43,7 +43,12 @@ public class Scheduler {
 
         Processo processoexecutando = proximoprocesso();
 
-        if(processoexecutando.recurso_necessario.equals("DISCO") && processoexecutando.bloqueio == false){
+        if (processoexecutando == null){
+            System.out.println("Nenhum processo disponivel para execução.");
+                    return;
+        }
+
+        if(processoexecutando.recurso_necessario != null && processoexecutando.recurso_necessario.equals("DISCO") && processoexecutando.bloqueio == false){
             System.out.println("||BLOQUEIO|| Processo " +  processoexecutando.nome + " requer DISCO");
 
             lista_bloqueados.AdicionarFim(processoexecutando);
@@ -59,8 +64,10 @@ public class Scheduler {
             System.out.println("Processo " + processoexecutando.nome + " executado");
         }else {
             AdicionarProcesso(processoexecutando);
-            System.out.println("Processo " + processoexecutando.nome + " reenserido ");
+            System.out.println("Processo " + processoexecutando.nome + " reinserido ");
         }
+
+        Imprimir();
 
     }
 public Processo proximoprocesso(){
@@ -70,13 +77,13 @@ public Processo proximoprocesso(){
             System.out.println("Quantidade de ciclos de alta prioridade alcançada. Executando media/baixa prioridade.");
             contador_ciclos_alta_prioridade = 0;
 
-            if (lista_media_prioridade != null){
-                lista_media_prioridade.RemoverInicio();
-            }else if (lista_baixa_prioridade != null){
-                lista_baixa_prioridade.RemoverInicio();
+            if (!lista_media_prioridade.Vazio()){
+                processo = lista_media_prioridade.RemoverInicio();
+            }else if (!lista_baixa_prioridade.Vazio()){
+                processo = lista_baixa_prioridade.RemoverInicio();
             }else {
                 System.out.println("Nenhuma prioridade media/baixa disponivel, Executando alta prioridade.");
-                lista_alta_prioridade.RemoverInicio();
+                processo = lista_alta_prioridade.RemoverInicio();
                 contador_ciclos_alta_prioridade++;
             }
 
@@ -84,13 +91,13 @@ public Processo proximoprocesso(){
 
         else {
             if (!lista_alta_prioridade.Vazio()){
-                lista_alta_prioridade.RemoverInicio();
+                processo = lista_alta_prioridade.RemoverInicio();
                 contador_ciclos_alta_prioridade++;
             } else if (!lista_media_prioridade.Vazio()) {
-                lista_media_prioridade.RemoverInicio();
+                processo = lista_media_prioridade.RemoverInicio();
                 contador_ciclos_alta_prioridade = 0;
             }else if (!lista_baixa_prioridade.Vazio()){
-                lista_baixa_prioridade.RemoverInicio();
+                processo = lista_baixa_prioridade.RemoverInicio();
                 contador_ciclos_alta_prioridade = 0;
             }
 
