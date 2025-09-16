@@ -34,7 +34,7 @@ public class Scheduler {
         cicloAtual++;
         System.out.println("Executando ciclo " + cicloAtual );
 
-        if(!(lista_bloqueados == null)){
+        if(!lista_bloqueados.Vazio()){
             Processo processodesbloqueio = lista_bloqueados.RemoverInicio();
             System.out.println("||DESBLOQUEIO|| Processo " + processodesbloqueio.nome);
             AdicionarProcesso(processodesbloqueio);
@@ -51,7 +51,7 @@ public class Scheduler {
             return;
 
         }
-        System.out.println("Executando processo " + processoexecutando.nome "Ciclos restantes: " + processoexecutando.ciclos_necessarios);
+        System.out.println("Executando processo " + processoexecutando.nome + "Ciclos restantes: " + processoexecutando.ciclos_necessarios);
 
         processoexecutando.ciclos_necessarios--;
 
@@ -81,6 +81,21 @@ public Processo proximoprocesso(){
             }
 
         }
+
+        else {
+            if (!lista_alta_prioridade.Vazio()){
+                lista_alta_prioridade.RemoverInicio();
+                contador_ciclos_alta_prioridade++;
+            } else if (!lista_media_prioridade.Vazio()) {
+                lista_media_prioridade.RemoverInicio();
+                contador_ciclos_alta_prioridade = 0;
+            }else if (!lista_baixa_prioridade.Vazio()){
+                lista_baixa_prioridade.RemoverInicio();
+                contador_ciclos_alta_prioridade = 0;
+            }
+
+        }
+        return processo;
 
 }
 
