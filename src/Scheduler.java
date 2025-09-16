@@ -60,8 +60,8 @@ public class Scheduler {
 
         processoexecutando.ciclos_necessarios--;
 
-        if (processoexecutando.ciclos_necessarios == 0){
-            System.out.println("Processo " + processoexecutando.nome + " executado");
+        if (processoexecutando.ciclos_necessarios <= 0){
+            System.out.println("Processo " + processoexecutando.nome + " finalizado");
         }else {
             AdicionarProcesso(processoexecutando);
             System.out.println("Processo " + processoexecutando.nome + " reinserido ");
