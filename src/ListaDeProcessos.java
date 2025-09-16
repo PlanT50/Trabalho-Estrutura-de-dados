@@ -43,4 +43,23 @@ public class ListaDeProcessos {
 
     }
 
+    public String imprimirLista() {
+        if (Head == null) {
+            return "Vazia";
+        }
+
+        String resultado = "";
+        Node atual = Head;
+
+        while (atual != null) {
+            resultado += atual.processo.nome + "(" + atual.processo.ciclos_necessarios + ")";
+            if (atual.proximo != null) {
+                resultado += " → ";
+            }
+            atual = atual.proximo;
+        }
+
+        return resultado;
+    }
+
 }
