@@ -32,6 +32,8 @@ public class Scheduler {
     }
     public void  executarCicloDeCPU(){
         cicloAtual++;
+        System.out.println("================================");
+        System.out.println("================================");
         System.out.println("Executando ciclo " + cicloAtual );
 
         if(!lista_bloqueados.Vazio()){
@@ -52,11 +54,13 @@ public class Scheduler {
             System.out.println("||BLOQUEIO|| Processo " +  processoexecutando.nome + " requer DISCO");
 
             lista_bloqueados.AdicionarFim(processoexecutando);
+            System.out.println("Processo " + processoexecutando.nome + " adicionado a lista Bloqueio");
             processoexecutando.bloqueio = true;
+            Imprimir();
             return;
 
         }
-        System.out.println("Executando processo " + processoexecutando.nome + "Ciclos restantes: " + processoexecutando.ciclos_necessarios);
+        System.out.println("Executando processo " + processoexecutando.nome + " || Ciclos restantes: " + processoexecutando.ciclos_necessarios);
 
         processoexecutando.ciclos_necessarios--;
 
