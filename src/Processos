@@ -2,15 +2,19 @@ public class Processo {
     int id;
     String nome;
     int prioridade;
-    int ciclos_necessarios; // Separar entre 1-Alta 2-Média 3-Baixa
+    int ciclos_necessarios;
     String recurso_necessario;
+    boolean bloqueio;
 
-    public Processo(int id, String nome, int prioridade, int ciclos_necessarios, String recursos necessarios){
+    public Processo(int id, String nome, int prioridade, int ciclos_necessarios, String recurso_necessario){
         this.id = id;
         this.nome = nome;
         this.prioridade = prioridade;
         this.ciclos_necessarios = ciclos_necessarios;
         this.recurso_necessario = recurso_necessario;
+        this.bloqueio = false;
     }
+
+
 
 }
