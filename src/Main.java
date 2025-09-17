@@ -7,12 +7,6 @@ public class Main {
 
         System.out.println("=====INICIANDO O ESCALONADOR=====");
 
-        scheduler.AdicionarProcesso(new Processo(1,"Discord",3,4,"DISCO" ));
-        scheduler.AdicionarProcesso(new Processo(2,"GOOGLE",2,3,null));
-        scheduler.AdicionarProcesso(new Processo(3,"MOUSE",1,2,null));
-        scheduler.AdicionarProcesso(new Processo(4,"TELA",1,2,null));
-        scheduler.AdicionarProcesso(new Processo(5,"COOLER",1,5,null));
-        scheduler.AdicionarProcesso(new Processo(6,"UI",1,2,null));
 
         System.out.println("Processos Adicionados, Pressione ENTER para continuar");
         scanf.nextLine();
