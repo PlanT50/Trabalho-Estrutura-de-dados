@@ -1,1 +1,37 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
+    public class LeitorDeProcessos {
+
+        public static void lerArquivo(String nomeArquivo, Scheduler scheduler) {
+            try (BufferedReader br = new BufferedReader(new FileReader(nomeArquivo))) {
+                String linha;
+
+                while ((linha = br.readLine()) != null) {
+
+                    String[] partes = linha.split(",");
+                    if (partes.length < 5) continue;
+
+                    int id = Integer.parseInt(partes[0].trim());
+                    String nome = partes[1].trim();
+                    int prioridade = Integer.parseInt(partes[2].trim());
+                    int ciclos = Integer.parseInt(partes[3].trim());
+                    String recurso = partes[4].trim();
+                    if (recurso.equalsIgnoreCase("null") || recurso.isEmpty()) {
+                        recurso = null;
+                    }
+
+                    Processo p = new Processo(id, nome, prioridade, ciclos, recurso);
+                    scheduler.AdicionarProcesso(p);
+                }
+
+            } catch (IOException e) {
+                System.out.println("Erro ao ler arquivo: " + nomeArquivo);
+                e.printStackTrace();
+            } catch (NumberFormatException e) {
+                System.out.println("Erro de formatação no arquivo: " + nomeArquivo);
+                e.printStackTrace();
+            }
+        }
+    }
