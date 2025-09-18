@@ -7,6 +7,8 @@ public class Main {
 
         System.out.println("=====INICIANDO O ESCALONADOR=====");
 
+        LeitorDeProcessos.lerArquivo("processos.txt", scheduler);
+
 
         System.out.println("Processos Adicionados, Pressione ENTER para continuar");
         scanf.nextLine();
@@ -32,4 +34,3 @@ public class Main {
 
     }
 }
-
