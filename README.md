@@ -39,6 +39,6 @@ null - Recurso necessário|
 ADENDO-
 O nivel de prioridade vai de 1 a 3|
 O numero de ciclos máximo é 20|
-Há dois recursos disponiveis: null ou DISCO(Deve obrigatoriamente ser escrito em maiusculo)|
+Há dois recursos disponiveis: null ou DISCO( DISCO Deve obrigatoriamente ser escrito em maiusculo)|
 Todos os parâmetros devem ser separados por virgula.
 
