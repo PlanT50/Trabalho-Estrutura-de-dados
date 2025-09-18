@@ -30,15 +30,15 @@ O projeto está dividido em 5 classes principais:
 O programa recebe os processos a partir de um arquivo texto chamado **`processos.txt`**, no formato:
 1,Google,2,5,null
 
-1 - O id do processo
-Google - Nome do processo
-2 - Nivel de prioridade
-5 - Ciclos necessários
-null - Recurso necessário
+1 - O id do processo|
+Google - Nome do processo|
+2 - Nivel de prioridade|
+5 - Ciclos necessários|
+null - Recurso necessário|
 
 ADENDO-
-O nivel de prioridade vai de 1 a 3
-O numero de ciclos máximo é 20
-Há dois recursos disponiveis: null ou DISCO(Deve obrigatoriamente ser escrito em maiusculo)
+O nivel de prioridade vai de 1 a 3|
+O numero de ciclos máximo é 20|
+Há dois recursos disponiveis: null ou DISCO(Deve obrigatoriamente ser escrito em maiusculo)|
 Todos os parâmetros devem ser separados por virgula.
 
