@@ -1,8 +1,8 @@
-# Escalonador de Processos com Listas de Prioridade e Prevenção de Inanição
+# Escalonador de Processos 
 
 **Disciplina:** Algoritmos e Estrutura de Dados I  
 **Professor:** Dimmy Magalhães  
-**Projeto P1 – Valor: 40% da avaliação**  
+  
 
 # Integrante:
 Manoel Alves Nunes Bezerra - 0030720
@@ -12,7 +12,6 @@ Manoel Alves Nunes Bezerra - 0030720
 Este projeto implementa um **escalonador de processos** para o sistema fictício *iCEVOS*.  
 O escalonador gerencia **múltiplos níveis de prioridade** e aplica uma regra de **prevenção de inanição** (anti-starvation), além de lidar com **processos bloqueados por recurso** (ex.: DISCO).  
 
-Todas as listas de processos foram implementadas **do zero**, sem o uso de estruturas prontas do Java (`ArrayList`, `LinkedList`, `Queue`, etc.), conforme exigido no enunciado.  
 
 ---
 
@@ -29,4 +28,17 @@ O projeto está dividido em 5 classes principais:
 
 ## 📂 Entrada de Dados
 O programa recebe os processos a partir de um arquivo texto chamado **`processos.txt`**, no formato:
+1,Google,2,5,null
+
+1 - O id do processo
+Google - Nome do processo
+2 - Nivel de prioridade
+5 - Ciclos necessários
+null - Recurso necessário
+
+ADENDO-
+O nivel de prioridade vai de 1 a 3
+O numero de ciclos máximo é 20
+Há dois recursos disponiveis: null ou DISCO(Deve obrigatoriamente ser escrito em maiusculo)
+Todos os parâmetros devem ser separados por virgula.
 
